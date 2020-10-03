@@ -40,7 +40,7 @@ class CreateUserCommand extends Command
             ])
             ->setHelp(<<<'EOT'
                 The <info>user:create</info> command creates an admin user:
-                This interactive shell will ask you for an email, a password and am organisation name.
+                This interactive shell will ask you for an email, a password and a role.
                 You can alternatively specify the arguments as the first and second and third arguments:
                   <info>bin/console %command.full_name% john.doe@example.com mypassword ROLE_ADMIN</info>
 EOT

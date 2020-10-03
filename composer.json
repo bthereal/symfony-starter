@@ -21,7 +21,7 @@
         "symfony/orm-pack": "^1.0",
         "symfony/security": "*",
         "symfony/security-bundle": "*",
-        "symfony/security-csrf": "4.3.*",
+        "symfony/security-csrf": "^5.0",
         "symfony/serializer": "*",
         "symfony/swiftmailer-bundle": "^3.2",
         "symfony/templating": "*",
@@ -34,7 +34,7 @@
         "symfony/debug-pack": "^1.0",
         "symfony/dotenv": "*",
         "symfony/maker-bundle": "^1.10",
-        "symfony/phpunit-bridge": "4.2.*",
+        "symfony/phpunit-bridge": "^5.0",
         "symfony/profiler-pack": "^1.0",
         "symfony/web-server-bundle": "*"
     },
@@ -80,7 +80,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "4.2.*"
+            "require": "5.1.*"
         }
     }
 }
