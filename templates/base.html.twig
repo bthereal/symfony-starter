@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+
+<div class="wrapper {{ pageClass is defined ? pageClass }}">
+    <header>
+        {% include 'default/warnings.twig' %}
+    </header>
+    <div class="container">
+        <div class="row">
+        {% block container %}
+            {% include 'default/messages.twig' %}
+            {% block body %}{% endblock %}
+            {% block sidebar %}{% endblock %}
+        {% endblock %}
+        </div>
+    </div>
+</div>
+{% include 'sections/footer_js.twig' %}
+{% block footer_js %}{% endblock %}
+</body>
+</html>

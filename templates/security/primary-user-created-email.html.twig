@@ -1,0 +1,44 @@
+{% extends 'email.html.twig' %}
+
+{% block style %}
+    <style type="text/css">
+        hr.dashed {
+            max-width: 260px;
+            width: 100%;
+            margin: 24px auto;
+            border: 0;
+            border-top: 1px dashed #cbcbcb;
+        }
+
+        .voucher-code {
+            background: #F2F4FA;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 28px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .app-store-button {
+            margin: 0 10px;
+            text-decoration: none;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <tr>
+        <td></td>
+        <td class="center-text">
+            <p style="color:#cccccc;">__ __ __ __ __ __ __ __ __</p>
+            <p>Click the link below to complete your account setup, or copy and paste it into a browser:</p>
+            <p><a href="{{ passwordUrl }}">{{ passwordUrl }}</a></p>
+            <p style="color:#cccccc;">__ __ __ __ __ __ __ __ __</p>
+        </td>
+        <td></td>
+    </tr>
+{% endblock %}

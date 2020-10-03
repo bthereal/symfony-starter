@@ -1,0 +1,3 @@
+{% macro link(user) %}
+    <a href="{{ path('user_edit', { userId: user.id }) }}">{{ user.username }}</a>
+{% endmacro %}

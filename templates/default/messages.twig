@@ -1,0 +1,13 @@
+<div class="col-md-12">
+{% for type, messages in app.session.flashbag.all %}
+    {% embed "components/alert.html.twig" with {status: type} %}
+        {% block content %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endblock %}
+    {% endembed %}
+{% endfor %}
+</div>

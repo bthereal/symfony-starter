@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% embed "components/content-box.html.twig" with {title: 'Create user'} %}
+        {% block content %}
+            {{ form(form) }}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

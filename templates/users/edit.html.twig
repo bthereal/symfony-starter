@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% embed "components/content-box.html.twig" with {title: 'Update User Details'} %}
+        {% block content %}
+            {{ form_start(form) }}
+            <div class="row col-md-12">
+                <div class="col-md-9">
+                    {{ form_row(form.username) }}
+                </div>
+                <div class="col-md-9">
+                    {% if form.plainPassword is defined %}
+                        {{ form_row(form.plainPassword) }}
+                    {% endif %}
+                </div>
+                <div class="col-md-9">
+                    {{ form_row(form.roles) }}
+                </div>
+                <div class="col-md-9">
+                    {{ form_widget(form.save) }}
+                    {{ form_widget(form.delete) }}
+                </div>
+            </div>
+            {{ form_end(form) }}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

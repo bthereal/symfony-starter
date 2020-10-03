@@ -1,0 +1,31 @@
+{% set buttons = [{path: path('user_register'), label: 'Create user', class: 'btn-primary'}] %}
+{% embed 'components/content-box.html.twig' with { title: 'Users', containsTable: true, buttons:buttons } %}
+    {% block content %}
+    <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+        <div class="datatables--table datatables--responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Permissions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td><a href="{{ path('user_edit', { userId: user.id}) }}">{{ user.username }}</a></td>
+                        <td>
+                            {% for role in user.roles %}
+                                {{ role|replace({'_': ' '})|lower|capitalize }}
+                                {% if not loop.last %},{% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+    {% endblock %}
+{% endembed %}

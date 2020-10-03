@@ -1,0 +1,40 @@
+version: '3.5'
+
+services:
+  nginx:
+    hostname: defi.com
+    ports:
+      - '8500:80'
+    volumes:
+      - ./docker/nginx/conf.d/dev.conf:/etc/nginx/conf.d/default.conf:z,cached
+    networks:
+      external:
+        aliases:
+          - defi.com
+  php:
+    hostname: defi-fpm
+    environment:
+      - XDEBUG_ENABLED=true
+      - PHP_IDE_CONFIG=serverName=defi.com
+    networks:
+      fpm:
+        aliases:
+          - defi-fpm
+  database:
+    hostname: defi-mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=mango
+      - MYSQL_DATABASE=mango
+      - MYSQL_USER=mango
+      - MYSQL_PASSWORD=mango
+    volumes:
+      - defi_maria_db:/var/lib/mysql:z,delegated
+    networks:
+      external:
+        aliases:
+          - defi-mariadb
+      database:
+        aliases:
+          - defi-mariadb
+volumes:
+  defi_maria_db:

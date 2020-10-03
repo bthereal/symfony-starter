@@ -1,0 +1,49 @@
+version: '3.5'
+
+services:
+  nginx:
+    container_name: defi_nginx
+    image: nginx:mainline-alpine
+    ports:
+      - "80"
+      - "443"
+    volumes:
+      - ./:/var/www:z,delegated
+    restart: always
+    depends_on:
+      - php
+    networks:
+      - fpm
+      - external
+  php:
+    container_name: defi_php
+    build:
+        context: ./docker/php
+    ports:
+      - "9000"
+    volumes:
+      - ./:/var/www:z,delegated
+    restart: always
+    networks:
+      - fpm
+      - database
+      - external
+  database:
+    container_name: defi_mariadb
+    build:
+        context: ./docker/mariadb
+    ports:
+      - "3306"
+    restart: always
+    networks:
+      - database
+networks:
+  fpm:
+    driver: bridge
+    internal: true
+  database:
+    driver: bridge
+    internal: true
+  external:
+    name: external-network
+    driver: bridge

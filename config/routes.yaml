@@ -1,0 +1,36 @@
+index:
+  path: /
+  controller: 'App\Controller\DefaultController'
+
+security_login:
+  path: /login
+  controller: 'App\Security\LoginController::loginAction'
+
+security_logout:
+  path: /logout
+
+password_reset_request:
+  path: /users/request-password-reset
+  controller: 'App\Security\PasswordResetController::resetPasswordRequestAction'
+
+password_sent:
+  path: /users/password-sent
+  controller: 'App\Security\PasswordResetController::passwordSentAction'
+
+password_reset:
+  path: /users/password-reset
+  controller: 'App\Security\PasswordResetController::resetPasswordAction'
+
+user_register:
+  path: user/register
+  methods: [GET, POST]
+  controller: 'App\Users\UserController::registerAction'
+
+user_edit:
+  path: /user/edit/{userId}
+  methods: [POST, GET]
+  controller: 'App\Users\UserController::updateAction'
+
+user_delete:
+  path: /user/delete/{userId}
+  controller: 'App\Users\UserController::deleteAction'
