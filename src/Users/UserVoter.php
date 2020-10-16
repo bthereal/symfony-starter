@@ -35,4 +35,14 @@ class UserVoter extends Voter
 
         return $user === $subject;
     }
+
+    function supportsAttribute($attribute)
+    {
+        // TODO: Implement supportsAttribute() method.
+    }
+
+    function supportsClass($class)
+    {
+        // TODO: Implement supportsClass() method.
+    }
 }

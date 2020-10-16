@@ -122,4 +122,9 @@ class User implements UserInterface
     {
         return $this->resetToken === $token && null !== $this->resetExpiresAt && $this->resetExpiresAt > time();
     }
+
+    function equals(UserInterface $user)
+    {
+        // TODO: Implement equals() method.
+    }
 }

@@ -79,7 +79,6 @@ EOT
         } catch (UniqueConstraintViolationException $e) {
             throw new \Exception('A user with this email already exists.');
         } catch (\Exception $e) {
-            dump($e->getMessage());exit;
             throw new \Exception('An unknown error occurred, please try again or contact support if the problem persists.');
         }
     }

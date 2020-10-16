@@ -3,12 +3,12 @@
 namespace App\Security;
 
 use App\Users\UserRepo;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 
-class PasswordResetController extends Controller
+class PasswordResetController extends AbstractController
 {
     private $users;
 
