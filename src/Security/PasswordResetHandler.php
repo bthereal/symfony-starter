@@ -20,7 +20,7 @@ class PasswordResetHandler
         $this->templating = $templating;
         $this->mailer = $mailer;
         $this->generator = $generator;
-        $this->from = 'no-reply@mango-research.com';
+        $this->from = '';
     }
 
     public function handle(User $user, string $token)
